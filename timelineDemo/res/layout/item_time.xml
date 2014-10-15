@@ -3,12 +3,17 @@
     xmlns:local="http://schemas.android.com/apk/res/com.example.timelinedemo" 
                 android:id="@+id/layout_item" 
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" android:minHeight="50dp"
-                local:zoneType="ZONETYPEITEM" android:orientation="horizontal"
+                android:layout_height="wrap_content" android:minHeight="80dp"
+                local:zoneType="ZONETYPEITEM" android:orientation="vertical"
                 android:background="@drawable/button_inverse_selector"     
                 >
-                <TextView 
+                <TextView android:layout_gravity="center_vertical" android:layout_marginTop="30dp"
                     android:id="@+id/item_txt" 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:layout_gravity="center" />
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content" android:layout_marginLeft="70dp" />
+                <TextView  
+                    android:id="@+id/item_name" 
+	                android:layout_width="wrap_content" android:text="asdf" android:layout_gravity="right|bottom"
+	                android:layout_height="wrap_content" android:layout_marginRight="30dp" />
+                
 </com.android.timeline.TimeLineView>

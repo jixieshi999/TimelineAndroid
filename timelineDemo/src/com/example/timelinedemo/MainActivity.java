@@ -1,9 +1,8 @@
 package com.example.timelinedemo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import com.android.timeline.TimeLineView;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -11,8 +10,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.android.timeline.TimeLineView;
 
 public class MainActivity extends Activity {
 
@@ -33,13 +36,29 @@ public class MainActivity extends Activity {
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 				View view= super.getView(position, convertView, parent);
+				((TextView)view.findViewById(R.id.item_name)).setText(new Date().toLocaleString());
 				TimeLineView timelineitem=(TimeLineView)view;
 				if(0==position){
 					timelineitem.setPositionType(TimeLineView.POSITIONTYPEFIRST);
 				}else if(getCount()-1==position){
 					timelineitem.setPositionType(TimeLineView.POSITIONTYPELAST);
+					LayoutParams param=timelineitem.getLayoutParams();
+					param.height=80;
+					timelineitem.setLayoutParams(param);
 				}else{
 					timelineitem.setPositionType(TimeLineView.POSITIONTYPEMIDDLE);
+				}
+				if(1==position){
+
+					LayoutParams param=timelineitem.getLayoutParams();
+					param.height=50;
+					timelineitem.setLayoutParams(param);
+				}
+				if(2==position){
+
+					LayoutParams param=timelineitem.getLayoutParams();
+					param.height=200;
+					timelineitem.setLayoutParams(param);
 				}
 				timelineitem.setRadioBackgroundColor(Color.parseColor("#444444"));
 				if(position%2==0){
